@@ -2,8 +2,8 @@ const mineflayer = require('mineflayer');
 
 function createBot() {
     const bot = mineflayer.createBot({
-        host: 'gold.magmanode.com',
-        port: 28939,
+        host: 'frostbiteadventures268.mcsh.io',
+        port: 25565,
         username: 'KacmazBot',
         version: '1.20.5' // Sunucu sürümünü net olarak belirttik
     });
