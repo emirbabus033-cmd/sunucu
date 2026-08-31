@@ -13,31 +13,31 @@ bot.on('spawn', () => {
     if (isInitialized) return;
     isInitialized = true;
 
-    console.log('Bot oyuna girdi, kimlik doğrulama adımları sırayla uygulanıyor...');
+    console.log('Bot oyuna girdi, kimlik doğrulama komutları peş peşe gönderiliyor...');
 
-    // 1. Adım: Register komutu
+    // Oyuna girer girmez (neredeyse anında) register komutunu gönder
     setTimeout(() => {
         bot.chat('/register botcuk123 botcuk123');
         console.log('/register komutu gönderildi.');
-    }, 1000);
+    }, 200); // 0.2 saniye
 
-    // 2. Adım: Login komutu
+    // Çok kısa bir süre sonra hemen login komutunu gönder
     setTimeout(() => {
         bot.chat('/login botcuk123');
         console.log('/login komutu gönderildi.');
-    }, 2500);
+    }, 800); // 0.8 saniye
 
-    // 3. Adım: Giriş işlemlerinden sonra durmadan koşma/yürüme döngüsünü başlat
+    // Giriş tamamlandıktan sonra durmadan koşma modunu başlat
     setTimeout(() => {
         console.log('Durmadan koşma/yürüme modu aktif.');
         bot.setControlState('forward', true); // İleri tuşunu sürekli basılı tutar
         
-        // Ara sıra zıplayarak veya yön değiştirerek kick yeme riskini tamamen ortadan kaldıralım
+        // Ara sıra zıplayarak takılmayı önle
         setInterval(() => {
             bot.setControlState('jump', true);
             setTimeout(() => bot.setControlState('jump', false), 500);
         }, 7000);
-    }, 4000);
+    }, 1500);
 });
 
 bot.on('error', (err) => {
