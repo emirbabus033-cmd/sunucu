@@ -4,7 +4,7 @@ let bot;
 
 function createBot() {
     bot = mineflayer.createBot({
-        host: 'frostbiteadventures268.mcsh.io',
+        host: 'sevemezsinizsmp.mcsh.io',
         port: 25565,
         username: 'ahmetbabapro',
         version: '1.19.1'
